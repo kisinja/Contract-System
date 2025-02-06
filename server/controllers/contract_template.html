@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+
+        h1 {
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .content {
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        .parties {
+            margin-top: 30px;
+            font-weight: bold;
+        }
+
+        .signatures {
+            margin-top: 50px;
+        }
+
+        .signature-box {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .signature {
+            text-align: center;
+            width: 45%;
+            padding-top: 10px;
+            font-size: 14px;
+        }
+
+        .signature img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            padding: 5px;
+            border-radius: 5px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .signed-at {
+            font-size: 12px;
+            color: gray;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>{{title}}</h1>
+    <p class="parties"><strong>Parties Involved:</strong> {{parties}}</p>
+    <div class="content">{{{content}}}</div>
+
+    <div class="signatures">
+        <h3>Signatures:</h3>
+        <div class="signature-box">
+            {{#each signatures}}
+            <div class="signature">
+                <img src="{{this.signature}}" alt="Signature of {{this.name}}">
+                <p class="signed-at">Signed by {{this.name}} on {{this.signedAt}}</p>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</body>
+
+</html>
