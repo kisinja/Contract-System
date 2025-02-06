@@ -7,11 +7,12 @@ const DownloadPDF = () => {
 
     const contractId = useParams();
     const [loading, setLoading] = useState(false);
+    const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
     const handleDownload = async () => {
         setLoading(true);
         try {
-            const response = await axios.get(`http://localhost:7788/api/contracts/${contractId.id}/pdf`, {
+            const response = await axios.get(`${backendUrl}/contracts/${contractId.id}/pdf`, {
                 responseType: "blob",
             });
             console.log(response.data);

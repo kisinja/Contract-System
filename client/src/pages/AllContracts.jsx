@@ -28,6 +28,7 @@ const AllContracts = () => {
     }, []);
 
     if (loading) return <p>Loading contracts...</p>;
+    if (!contracts) return <div className="text-gray-600">No contracts found.</div>;
 
     return (
         <div className="max-w-4xl mx-auto">
